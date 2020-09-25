@@ -5,27 +5,16 @@ const mongoose = require('mongoose');
 /* GET users listing. */
 // get a author's information: the username, the description, images, and all their posts. 
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  // this should be an about page for me. 
+  // My description and other info
+  // Have all of my articles 
+  // No editing besides me
+
+  
 });
 
 
-router.post('/about', function(req, res) {
-
-});
-
-// Figure out what this next is used for
-// guessing redirect
-// Change the params address to something useful
-
-// Update user infomation 
-router.put('/', function(req, res, next){
-  res.send("respond")
-});
-
-// Cancel an author account 
-router.delete('/', function(req, res){
-  res.send('About something')
-})
+// res.sendFile(__dirname + '/index.html')
 
 
 

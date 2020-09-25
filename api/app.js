@@ -7,7 +7,8 @@ var cors = require("cors");
 var mongoose = require('mongoose');
 require('dotenv/config');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var authorRouter = require('./routes/author');
+var postsRouter = require('./routes/posts');
 var testAPIRouter = require('./routes/testAPI');
 
 var app = express();
@@ -23,7 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/author', authorRouter);
+app.use('/posts', postsRouter);
 app.use('/testAPI', testAPIRouter);
 
 // catch 404 and forward to error handler
@@ -40,9 +42,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  
 });
 
 //connect to DB 
 mongoose.connect(process.env.MONGO_DB, {useNewUrlParser: true, useUnifiedTopology: true })
 
 module.exports = app;
+app.listen(3000)
